@@ -1,0 +1,5 @@
+
+EMIT005:
+  - css: body > table > tbody > tr > td > table:nth-child(5) > tbody
+  - url: http://www.goethe-verlag.com/book2/EM/EMIT/EMIT005.HTM
+  - xpath: /html/body/table/tbody/tr/td/table[4]/tbody
