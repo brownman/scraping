@@ -1,9 +1,3 @@
-###
-#Translation using the Google Translate Service.
-#Usage:
-#$ casperjs translate.coffee --target=fr "hello world"
-#bonjour tout le monde
-
 system = require("system")
 casper = require("casper").create()
 format = require("utils").format
