@@ -1,6 +1,8 @@
 run(){
 while read line;do
-  casperjs BANK/$line
-done < <( ls -1l BANK/ )
+  cmd='casperjs BANK/$line'
+  echo "[CMD] $cmd"
+  eval "$cmd"
+done < <( ls -1 BANK/ )
 }
 run
