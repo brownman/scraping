@@ -8,6 +8,7 @@ target = "fr"
 text = "hello world"
 result = undefined
 
+casper.options.stepTimeout = 10000
 
 casper.start(format("http://translate.google.com/#%s/%s/%s", source, target, text), ->
   @fill "form#gt-form", text: text
