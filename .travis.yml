@@ -1,3 +1,7 @@
 language: javascript
-script:
+
+install:
   - npm install -g casperjs
+  
+script:
+  - casperjs test.js
