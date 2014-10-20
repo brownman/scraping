@@ -1,4 +1,5 @@
 sample.js
+translate.js
 translate.coffee
 
 sample.js
