@@ -1,11 +1,14 @@
 run(){
 local file cmd
 while read line;do
+test -n "$line" || break
+
   file=BANK/$line
   test -f $file 
   cmd="casperjs $file"
   echo "[CMD] $cmd"
   eval "$cmd"
-done < <( ls -1 BANK/ )
+  
+done < <( cat task.txt  )
 }
 run
