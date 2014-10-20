@@ -17,7 +17,7 @@ test -n "$line" || break
   echo "[CMD] $cmd"
   eval "$cmd"
   
-done < <( cat task.txt  )
+done < <( cat CFG/task.txt  )
 }
 
 test1(){
@@ -32,7 +32,7 @@ test -n "$line" || break
   eval "$cmd"
 
   
-done < <( cat test.txt  )
+done < <( cat CFG/test.txt  )
 }
 
 test1
