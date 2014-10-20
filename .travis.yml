@@ -4,4 +4,4 @@ install:
   - npm install -g casperjs
   
 script:
-  - casperjs test.js
+  - casperjs BANK/sample.js
