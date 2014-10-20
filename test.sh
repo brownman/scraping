@@ -6,7 +6,7 @@ trap_err(){
 trap trap_err ERR
 set -u
 
-run(){
+run1(){
 local file cmd
 while read line;do
 test -n "$line" || break
@@ -19,4 +19,9 @@ test -n "$line" || break
   
 done < <( cat task.txt  )
 }
-run
+
+test1(){
+  casperjs test test/cow-test.js
+}
+run1
+test1
