@@ -1,4 +1,9 @@
-set -e
+trap_err(){
+  echo "[$FUNCNAME]"
+  exit 1
+}
+
+trap trap_err ERR
 set -u
 
 run(){
