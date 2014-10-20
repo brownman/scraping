@@ -1,3 +1,5 @@
+//http://docs.casperjs.org/en/latest/quickstart.html#a-minimal-scraping-script
+
 var casper = require('casper').create();
 
 casper.start('http://casperjs.org/', function() {
