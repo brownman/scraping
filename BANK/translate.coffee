@@ -3,7 +3,7 @@ casper = require("casper").create()
 format = require("utils").format
 
 
-source = en
+source = auto
 target = fr
 text = "hello world"
 result = undefined
