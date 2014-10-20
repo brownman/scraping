@@ -1,3 +1,2 @@
-cow-test.js
-
-google-test
+cow
+google
