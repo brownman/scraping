@@ -1,3 +1,6 @@
+set -e
+set -u
+
 run(){
 local file cmd
 while read line;do
