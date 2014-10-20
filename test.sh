@@ -21,7 +21,19 @@ done < <( cat task.txt  )
 }
 
 test1(){
-  casperjs test test/cow-test.js
+  local file cmd
+while read line;do
+test -n "$line" || break
+
+  file=test/$line
+  test -f $file 
+  cmd="casperjs test $file"
+  echo "[CMD] $cmd"
+  eval "$cmd"
+
+  
+done < <( cat test.txt  )
 }
-run1
+
 test1
+run1
