@@ -24,7 +24,7 @@ var system = require('system'),
     //casper.cli.get('target'),
     text   = 'water'
     //casper.cli.get(0),
-    result;
+    result = undefined;
 
 
 /*
