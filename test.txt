@@ -1,2 +1,2 @@
-cow
-google
+cow.js
+google.js
