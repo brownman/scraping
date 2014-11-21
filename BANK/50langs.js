@@ -7,12 +7,12 @@ var casper = require('casper').create();
 
 function getLinks() {
     var links = document.querySelectorAll('.style2 , td.Stil39:nth-child(1)');
-    return links;
-    /*
+     
     return Array.prototype.map.call(links, function(e) {
-        return e.getAttribute('href');
+               return e.getHTML();
+//        return e.getAttribute('href');
     });
-    */
+    
 }
 casper.start('http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM', function() {
     // search for 'casperjs' from google form
