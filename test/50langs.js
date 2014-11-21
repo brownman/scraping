@@ -1,7 +1,7 @@
 // googletesting.js
-casper.test.begin('Google search retrieves 10 or more results', 5, function suite(test) {
+casper.test.begin('page should contains 100 lessons', 1, function suite(test) {
     casper.start("http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM", function() {
-        test.assertTitle("Google", "google homepage title is the one expected");
+        test.assertTitle("nglish US - Italian for beginners – Table of contents", "title is: langX -> langY");
         test.assertExists('form[action="/search"]', "main form is found");
         this.fill('form[action="/search"]', {
             q: "casperjs"
