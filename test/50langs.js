@@ -32,7 +32,9 @@ casper.test.begin('page should contains 100 lessons', 1, function suite(test) {
 var arr1 = [];
 var arr2 = getLinks();
 //documnt.get(".style2 , td.Stil39:nth-child(1)")
-
+    });
+    
+    
 casper.test.assertEquals(arr1, arr2)
     casper.run(function() {
         test.done();
