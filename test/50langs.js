@@ -1,7 +1,7 @@
 // googletesting.js
 casper.test.begin('page should contains 100 lessons', 1, function suite(test) {
     casper.start("http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM", function() {
-        test.assertTitle("nglish US - Italian for beginners – Table of contents", "title is: langX -> langY");
+        test.assertTitle("English US - Italian for beginners – Table of contents", "title is: langX -> langY");
       /*  test.assertExists('form[action="/search"]', "main form is found");
         this.fill('form[action="/search"]', {
             q: "casperjs"
