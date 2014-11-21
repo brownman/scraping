@@ -9,7 +9,7 @@ function getLinks() {
     var links = document.querySelectorAll('.style2 , td.Stil39:nth-child(1)');
      
     return Array.prototype.map.call(links, function(e) {
-               return e.getHTML();
+               return e.text;
 //        return e.getAttribute('href');
     });
     
