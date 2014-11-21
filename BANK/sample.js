@@ -2,12 +2,10 @@
 
 var casper = require('casper').create();
 
-casper.start('http://casperjs.org/', function() {
+casper.start('http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM', function() {
     this.echo(this.getTitle());
 });
 
-casper.thenOpen('http://phantomjs.org', function() {
-    this.echo(this.getTitle());
-});
+ 
  
 casper.run();
