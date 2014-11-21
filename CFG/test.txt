@@ -1,2 +1,3 @@
 cow.js
 google.js
+50langs.js
