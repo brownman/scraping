@@ -1,4 +1,6 @@
 sample.js
+50langs.js
+
 translate.js
 translate.coffee
 
