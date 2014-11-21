@@ -1,6 +1,8 @@
 //http://docs.casperjs.org/en/latest/quickstart.html#a-minimal-scraping-script
 
 // googletesting.js
+return
+
 var links = [];
 var casper = require('casper').create();
 
