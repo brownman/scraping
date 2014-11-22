@@ -1,9 +1,9 @@
 language: javascript
 cache: npm
 
-install:
-  - npm install -g casperjs
+#install:
+#  - npm install -g casperjs
   
 script:
-  - chmod u+x test.sh
-  - ./test.sh
+  - chmod u+x *.sh
+  - ./phantom.sh
