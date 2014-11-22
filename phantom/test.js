@@ -10,11 +10,9 @@ page.onConsoleMessage = function(msg) {
 
 
 
-var page = require('webpage').create();
-
+ 
 var url1='http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM';
-var page = require('webpage').create();
-page.open(url1, function(status) {
+ page.open(url1, function(status) {
      
     if ( status === "success" ) {       
       
