@@ -2,8 +2,8 @@
 
 
 var page = require('webpage').create();
-page.selector='.Stil39 a';
-page.url='http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM';
+var selector1='.Stil39 a';
+var url1='http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM';
 
 page.onConsoleMessage = function(msg) {
     console.log(msg);
@@ -12,13 +12,13 @@ page.onConsoleMessage = function(msg) {
 
 
 var page = require('webpage').create();
-page.open(page.url, function() {
+page.open(url1, function() {
   page.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function() {
     page.evaluate(function() {
-      var something=$(page.selector).text;
+      var something=$(selector1).text;
       console.log(something);
     });
-    phantom.exit()
+   // phantom.exit()
   });
 });
 
