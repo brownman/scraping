@@ -5,6 +5,9 @@ scraping
 =========
 trying different tools for web scraping
 
+selector tool
+----
+- http://selectorgadget.com/
 
 casper
 ----
