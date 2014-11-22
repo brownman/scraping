@@ -12,6 +12,9 @@ page.onConsoleMessage = function(msg) {
 page.open("http://www.phantomjs.org", function(status) {
     if ( status === "success" ) {
         page.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function() {
+              var content = page.content;
+  console.log('Content: ' + content);
+  
             page.evaluate(function() {
                 console.log("$(\".explanation\").text() -> " + $(".explanation").text());
             });
