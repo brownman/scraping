@@ -1,9 +1,15 @@
 language: node_js
 cache: npm
 
-#install:
-#  - npm install -g casperjs
   
+matrix:
+  fast_finish: true
+  
+# whitelist
+branches:
+  only:
+    - develop
+
 script:
   - chmod u+x *.sh
   - ./phantom.sh
