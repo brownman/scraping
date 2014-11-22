@@ -24,7 +24,7 @@ var page = require('webpage').create();
 page.open(url, function() {
   page.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function() {
     page.evaluate(function() {
-      var something=$(selector).text;
+      var something=$(selector).text();
       console.log(something);
     });
     phantom.exit()
