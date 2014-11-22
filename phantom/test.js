@@ -15,7 +15,7 @@ page.open("http://www.phantomjs.org", function(status) {
             page.evaluate(function() {
                 console.log("$(\".explanation\").text() -> " + $(".explanation").text());
             });
-            phantom.exit();
+           // phantom.exit();
         });
     }
 });
