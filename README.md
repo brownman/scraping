@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/brownman/scraping.svg?branch=master)](https://travis-ci.org/brownman/scraping)
+[![Build Status](https://travis-ci.org/brownman/scraping.svg?branch=develop)](https://travis-ci.org/brownman/scraping)
 
 
 scraping
