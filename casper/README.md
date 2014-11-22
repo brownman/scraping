@@ -11,6 +11,7 @@ jquery
 - [1](http://www.raymondcamden.com/2014/2/28/Interesting-discovery-with-CasperJS-jQuery-and-transitions)
 - [2](http://stackoverflow.com/questions/17860928/how-do-i-use-jquery-in-casperjs)
 
+---
 
-- [![Build Status](https://travis-ci.org/n1k0/casperjs.svg?branch=master)](https://travis-ci.org/n1k0/casperjs)
+[![Build Status](https://travis-ci.org/n1k0/casperjs.svg?branch=master)](https://travis-ci.org/n1k0/casperjs)
 
