@@ -14,7 +14,10 @@ var page = require('webpage').create();
 
 var url1='http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM';
 var page = require('webpage').create();
-page.open(url1, function() {
+page.open(url1, function(status) {
+     
+    if ( status === "success" ) {       
+      
   page.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function() {
     page.evaluate(function() {
         console.log(page.content);
@@ -25,6 +28,7 @@ page.open(url1, function() {
     });
    // phantom.exit()
   });
+      };
 });
 
 /*
