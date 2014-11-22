@@ -1,3 +1,5 @@
 #!/bin/bash
 
-phantomjs phantom/test.js
+cmd='phantomjs phantom/test.js'
+echo $cmd
+$cmd
