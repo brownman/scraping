@@ -17,7 +17,7 @@ var page = require('webpage').create();
 page.open(url1, function() {
   page.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function() {
     page.evaluate(function() {
-    var selector1='.Stil39 a';
+    var selector1='.Stil39 > a';
 
       var res=$(selector1).text();
       console.log(res);
