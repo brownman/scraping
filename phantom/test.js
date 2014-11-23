@@ -22,7 +22,7 @@ page.open(url1, function(status)
                                   var res=$(selector1).text();
                                   console.log(res);
                                 });
-                               // phantom.exit()
+                              phantom.exit()
                   });
       };
 });
