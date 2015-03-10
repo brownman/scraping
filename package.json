@@ -1,0 +1,22 @@
+{
+  "name": "scrapping",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/brownman/scraping.svg?branch=develop)](https://travis-ci.org/brownman/scraping)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brownman/scrapping"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brownman/scrapping/issues"
+  },
+  "homepage": "https://github.com/brownman/scrapping",
+  "devDependencies": {
+    "phantomjs": "^1.9.16"
+  }
+}

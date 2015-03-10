@@ -1,0 +1,42 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/someone1/.nvm/v0.10.33/bin/node',
+1 verbose cli   '/home/someone1/.nvm/v0.10.33/bin/npm',
+1 verbose cli   'link',
+1 verbose cli   'phantomjs' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node_modules/phantomjs unbuild
+5 verbose link symlinking /home/someone1/.nvm/v0.10.33/lib/node_modules/phantomjs to /home/someone1/OFER/SCRAP/scrapping/node_modules/phantomjs
+6 info build /home/someone1/OFER/SCRAP/scrapping/node_modules/phantomjs
+7 info preinstall phantomjs@1.9.16
+8 verbose linkStuff [ false,
+8 verbose linkStuff   false,
+8 verbose linkStuff   false,
+8 verbose linkStuff   '/home/someone1/OFER/SCRAP/scrapping/node_modules' ]
+9 info linkStuff phantomjs@1.9.16
+10 verbose linkBins phantomjs@1.9.16
+11 verbose link bins [ { phantomjs: './bin/phantomjs' },
+11 verbose link bins   '/home/someone1/OFER/SCRAP/scrapping/node_modules/.bin',
+11 verbose link bins   false ]
+12 verbose linkMans phantomjs@1.9.16
+13 verbose rebuildBundles phantomjs@1.9.16
+14 info install phantomjs@1.9.16
+15 verbose unsafe-perm in lifecycle true
+16 info phantomjs@1.9.16 Failed to exec install script
+17 error phantomjs@1.9.16 install: `node install.js`
+17 error Exit status 8
+18 error Failed at the phantomjs@1.9.16 install script.
+18 error This is most likely a problem with the phantomjs package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     node install.js
+18 error You can get their info via:
+18 error     npm owner ls phantomjs
+18 error There is likely additional logging output above.
+19 error System Linux 3.13.0-46-generic
+20 error command "/home/someone1/.nvm/v0.10.33/bin/node" "/home/someone1/.nvm/v0.10.33/bin/npm" "link" "phantomjs"
+21 error cwd /home/someone1/OFER/SCRAP/scrapping
+22 error node -v v0.10.33
+23 error npm -v 1.4.28
+24 error code ELIFECYCLE
+25 verbose exit [ 1, true ]
