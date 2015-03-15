@@ -12,4 +12,4 @@ branches:
 
 script:
   - chmod u+x *.sh
-  - ./phantom.sh
+  - ./simplest.sh RU 3

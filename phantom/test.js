@@ -1,7 +1,18 @@
 // Read the Phantom webpage '#intro' element text using jQuery and "includeJs"
+var fs = require('fs'),
+        system = require('system');
+//var num  = system.args.length;
+
 
 //var url1='http://www.goethe-verlag.com/book2/EM/EMIT/EMIT002.HTM';
-var url1='http://www.goethe-verlag.com/book2/EM/EMIT/EMIT003.HTM'
+var arg = system.args[1];
+console.log('arg: ' + arg);
+//phantom.exit();
+
+//var url1='http://www.goethe-verlag.com/book2/EM/EMIT/EMIT003.HTM'
+
+var url1=arg; 
+//'http://www.goethe-verlag.com/book2/EM/EMIT/EMIT0' + arg + '.HTM'
 var page = require('webpage').create();
 
 
