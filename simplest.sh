@@ -1,12 +1,13 @@
   
 
 
-export     lang_to1=$1 #3
-export     lesson=$2 #RU   
+
 
 set_env(){
 export     lang_from1=EN
-
+export     lang_to1=RU #$1 #3
+export     lesson=3 #$2 #RU   
+export      lesson_max=5
 export     dir_archive="$HOME/Downloads/LEARN_LANG/"
 }
 
@@ -33,11 +34,11 @@ string_change(){
 
 func1(){
   local str_num=$( string_change $lesson )
-  local filename_html="EN${lang_to}${str_num}.HTM"
+  local filename_html="${lang_from}${lang_to}${str_num}.HTM"
 
   #expose_var filename_html
 
-  local url="http://www.goethe-verlag.com/book2/EN/EN${lang_to}/${filename_html}"
+  local url="http://www.goethe-verlag.com/book2/${lang_from}/${lang_from}${lang_to}/${filename_html}"
   echo $url
 }
 
@@ -48,7 +49,7 @@ func1(){
 start(){
 local lang_to=$1
 local lang_from=$2
-while [ $lesson -lt 10 ];do
+while [ $lesson -lt $lesson_max ];do
 cmd="func1 $lang_to $num"
 echo cmd: $cmd
 res=$( eval "$cmd")
@@ -65,7 +66,9 @@ done
 
 steps(){
 set_env
+let lesson=3
 start $lang_from1 $lang_to1
+let lesson=3
 start $lang_to1 $lang_from1
 
 }
