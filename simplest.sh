@@ -1,13 +1,13 @@
   
 
 
-export     lang_to=$1 #3
+export     lang_to1=$1 #3
 export     lesson=$2 #RU   
 
 set_env(){
-export     lang_from=EN
+export     lang_from1=EN
 
-export     dir_archive='$HOME/Downloads/LEARN_LANG/${lang_to}'
+export     dir_archive="$HOME/Downloads/LEARN_LANG/"
 }
 
 
@@ -48,14 +48,15 @@ func1(){
 start(){
 local lang_to=$1
 local lang_from=$2
-while [ $lesson -lt 101 ];do
+while [ $lesson -lt 10 ];do
 cmd="func1 $lang_to $num"
 echo cmd: $cmd
 res=$( eval "$cmd")
 cmd1="./phantom.sh test.js $res"
 echo cmd1: $cmd1
 file11=/tmp/${lang_from}_${lang_to}_${lesson}.txt
-cmd2="$cmd1 &> $file11; cat $file11 | grep -v ^$"
+cmd2="$cmd1 &> $file11; cat $file11 | grep -v ^$ | head -3"
+echo lesson: $lesson
 echo cmd2 $cmd2
 $cmd2
 let "lesson += 1"
@@ -64,8 +65,8 @@ done
 
 steps(){
 set_env
-start $lang_to $lang_from
-start $lang_from $lang_to
+start $lang_from1 $lang_to1
+start $lang_to1 $lang_from1
 
 }
 steps
