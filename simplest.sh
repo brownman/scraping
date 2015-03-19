@@ -18,7 +18,7 @@ string_change(){
 #  use print
 #    print func
 
-    if [ $num -lt 10 ];then
+    if [ $num -lt 5 ];then
         str_num="00$num"
     elif [ $num -lt 100 ] ;then
         str_num="0$num"
