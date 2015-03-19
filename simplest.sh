@@ -55,7 +55,7 @@ res=$( eval "$cmd")
 cmd1="./phantom.sh test.js $res"
 echo cmd1: $cmd1
 file11=/tmp/${lang_from}_${lang_to}_${lesson}.txt
-cmd2="$cmd1 &> $file11; cat $file11"
+cmd2="$cmd1 &> $file11; cat $file11 | grep -v ^$"
 echo cmd2 $cmd2
 $cmd2
 let "lesson += 1"
