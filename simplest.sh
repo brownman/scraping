@@ -7,8 +7,9 @@ set_env(){
 export     lang_from1=EN
 export     lang_to1=RU #$1 #3
 export     lesson=3 #$2 #RU   
-export      lesson_max=5
+export      lesson_max=4
 export     dir_archive="$HOME/Downloads/LEARN_LANG/"
+export dir_to=./BANK
 }
 
 
@@ -55,11 +56,14 @@ echo cmd: $cmd
 res=$( eval "$cmd")
 cmd1="./phantom.sh test.js $res"
 echo cmd1: $cmd1
-file11=/tmp/${lang_from}_${lang_to}_${lesson}.txt
-cmd2="$cmd1 &> $file11; cat $file11 | grep -v ^$ | head -3"
+file11=$dir_to/${lang_from}_${lang_to}_${lesson}.txt
+eval "$cmd1" 1>/tmp/out 2>/tmp/err || (cat /tmp/err)
+touch $file11
+cat /tmp/out | grep -v ^$ | head -n -1 | tail -n +2 > $file11
+
+ls -l $file11
 echo lesson: $lesson
-echo cmd2 $cmd2
-$cmd2
+cat $file11
 let "lesson += 1"
 done
 }

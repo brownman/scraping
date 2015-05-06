@@ -16,7 +16,7 @@ else
     fi
 
     cmd="$phantomjs --web-security=false phantom/$file_name $args" 
-    echo cmd: $cmd
-    $cmd
+    echo 1>&2 cmd: $cmd
+    eval "$cmd"
 
 fi

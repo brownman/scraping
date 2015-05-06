@@ -14,7 +14,7 @@ test -n "$line" || break
   file=BANK/$line
   test -f $file 
   cmd="casperjs $file"
-  echo "[CMD] $cmd"
+  echo 1>&2 "[CMD] $cmd"
   eval "$cmd"
   
 done < <( cat CFG/task.txt  )
@@ -28,7 +28,7 @@ test -n "$line" || break
   file=test/$line
   test -f $file 
   cmd="casperjs test $file"
-  echo "[CMD] $cmd"
+  echo 1>&2 "[CMD] $cmd"
   eval "$cmd"
 
   
