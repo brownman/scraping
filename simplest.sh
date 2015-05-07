@@ -10,7 +10,7 @@ set_env(){
       lang_from1=EN
 let "lesson_max=$lesson1 + 1"
       dir_archive="$HOME/Downloads/LEARN_LANG/"
-  dir_to=./BANK
+  dir_to=/tmp; #./BANK
 }
 
 
