@@ -1,16 +1,16 @@
 set -u
-lesson1=${1:-1}
+lesson1=${2:-1}
 let 'lesson1 += 2' #offset
 echo lesson1: $lesson1
 #lesson1=3
-export     lang_to1=${2:-IT} #$1 #3
+      lang_to1=${1:-IT} #$1 #3
 
 
 set_env(){
-export     lang_from1=EN
+      lang_from1=EN
 let "lesson_max=$lesson1 + 1"
-export     dir_archive="$HOME/Downloads/LEARN_LANG/"
-export dir_to=./BANK
+      dir_archive="$HOME/Downloads/LEARN_LANG/"
+  dir_to=./BANK
 }
 
 
