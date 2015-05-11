@@ -4,7 +4,7 @@ let 'lesson1 += 2' #offset
 echo lesson1: $lesson1
 #lesson1=3
       lang_to1=${1:-IT} #$1 #3
-
+ 
 
 set_env(){
       lang_from1=EN
