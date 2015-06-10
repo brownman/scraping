@@ -3,11 +3,12 @@ lesson1=${1:-1}
 let 'lesson1 += 2'
 echo lesson1: $lesson1
 #lesson1=3
-
+test -d BANK || (mkdir BANK)
 
 set_env(){
 export     lang_from1=EN
-export     lang_to1=IT #$1 #3
+export     lang_to1=RU #$1 #3
+export     lang_to2=AR #$1 #3
 let "lesson_max=$lesson1 + 1"
 export     dir_archive="$HOME/Downloads/LEARN_LANG/"
 export dir_to=./BANK
@@ -75,10 +76,14 @@ let "lesson1 += 1"
 done
 }
 
+run_2_dirs(){
+local lang_to_x=$1
+start $lang_from1 $lang_to_x $lesson1
+start $lang_to_x $lang_from1 $lesson1
+}
 steps(){
 set_env
-start $lang_from1 $lang_to1 $lesson1
-start $lang_to1 $lang_from1 $lesson1
-
+run_2_dirs $lang_to1
+run_2_dirs $lang_to2
 }
 steps
