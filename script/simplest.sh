@@ -9,6 +9,7 @@ set_env(){
 export     lang_from1=EN
 export     lang_to1=RU #$1 #3
 export     lang_to2=AR #$1 #3
+export     lang_to3=IT #$1 #3
 let "lesson_max=$lesson1 + 1"
 export     dir_archive="$HOME/Downloads/LEARN_LANG/"
 export dir_to=./BANK
@@ -58,9 +59,12 @@ while [ $lesson1 -lt $lesson_max ];do
 cmd="func1 $lang_to $lesson1"
 echo cmd: $cmd
 res=$( eval "$cmd")
-cmd1="./phantom.sh test.js $res"
+cmd1="$dir_script/phantom.sh test.js $res"
 echo cmd1: $cmd1
-file11=$dir_to/${lang_from}_${lang_to}_${lesson1}.txt
+dir11=$dir_to/$lesson1/
+test -d $dir11 || { mkdir -p $dir11; }
+filename=${lang_from}_${lang_to}.txt
+file11=$dir11/$filename
 eval "$cmd1" 1>/tmp/out 2>/tmp/err || { cat /tmp/err;exit 1; }
 
 
@@ -85,5 +89,6 @@ steps(){
 set_env
 run_2_dirs $lang_to1
 run_2_dirs $lang_to2
+run_2_dirs $lang_to3
 }
 steps

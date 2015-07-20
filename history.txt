@@ -1,0 +1,2 @@
+ ./start.sh script/langs_50.sh 
+
