@@ -1,12 +1,16 @@
 [![Build Status](https://travis-ci.org/brownman/scraping.svg?branch=develop)](https://travis-ci.org/brownman/scraping)
 
-
-
+  
+ 
+    
+   
+   
+   
   
   
-  
 
 
+ 
  
  
 
@@ -18,3 +22,5 @@ trying different tools for web scraping
 selector tool
 ----
 - http://selectorgadget.com/
+ 
+   

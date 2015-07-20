@@ -1,6 +1,6 @@
 set -u
-lesson1=${1:-1}
-let 'lesson1 += 2'
+lesson1=${2:-1}
+let 'lesson1 += 2' #offset
 echo lesson1: $lesson1
 #lesson1=3
 test -d BANK || (mkdir BANK)
@@ -10,9 +10,14 @@ export     lang_from1=EN
 export     lang_to1=RU #$1 #3
 export     lang_to2=AR #$1 #3
 export     lang_to3=IT #$1 #3
+
+            dir_to=/tmp; #./BANK
+
 let "lesson_max=$lesson1 + 1"
-export     dir_archive="$HOME/Downloads/LEARN_LANG/"
-export dir_to=./BANK
+    if [ $LOGNAME = 'someone1'];then
+        dir_to=$dir_root/BANK
+
+    fi
 }
 
 
