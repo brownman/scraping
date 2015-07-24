@@ -1,24 +1,31 @@
+export dir_parent=$(cd `dirname $0`;pwd)
+set -e
 
-export dir_root=$(cd `dirname $0`;pwd)
+if [ "$1" -eq 1 ];then
+    file1='simplest'
+else
+    file1='random_line'
+fi
 
-file1="$1"
-opts="${@:2}"
+lesson1="$2"
 
 
 
 
 set_env(){
-source $dir_root/cfg/config.cfg
+    source $dir_parent/cfg/config.cfg
 }
 
 intro(){
-ls $dir_root/script
+    ls $dir_parent/script
 }
 
 steps(){
-set_env
-intro
-commander $dir_script/${file1}.sh $opts
+    set_env
+    intro
+    local cmd="$dir_script/${file1}.sh $lesson1"
+    echo cmd: $cmd
+    eval "$cmd"
 }
 
 steps

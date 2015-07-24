@@ -1,2 +1,2 @@
- ./start.sh script/langs_50.sh 
+ ./start.sh langs_50 3
 

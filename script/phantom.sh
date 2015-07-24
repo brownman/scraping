@@ -1,6 +1,7 @@
 #!/bin/bash
 #http://phantomjs.org/api/command-line.html
 clear
+set -e
 if [ $# -eq 0 ];then
     echo Options: 
     echo --------
