@@ -3,7 +3,11 @@ num_lesson=${1:-1}
 echo num_lesson: $num_lesson
 #num_lesson=3
 
-
+set_env(){
+test -d $dir_to
+dir_to11=$dir_to
+arr_langs=( $langs )
+}
 
 
 string_change(){
@@ -27,7 +31,7 @@ string_change(){
 
 
 
-func1(){
+bake_url_str(){
     local lang_from=$1
     local lang_to=$2
     local num_lesson=$3
@@ -45,58 +49,75 @@ func1(){
 
 
 
-start(){
-
-    local cmd1
-    local cmd
-    local res
-    local filename 
-    local dir11
-    local file11
-
+scrap_2_col(){
     local lang_to=$1
     local lang_from=$2
     local num_lesson=$3
+    #let "lesson_max=$num_lesson + 1"
     #    while [ $num_lesson -lt $lesson_max ];do
-    cmd="func1 $lang_from $lang_to $num_lesson"
+    local cmd
+    cmd="bake_url_str $lang_from $lang_to $num_lesson"
     echo cmd: $cmd
-    res=$( eval "$cmd")
-    cmd1="$dir_script/phantom.sh test.js $res"
-    echo cmd1: $cmd1
-    dir11=$dir_to/$num_lesson/
-    test -d $dir11 || { mkdir -p $dir11; }
-    filename=${lang_from}_${lang_to}.txt
-    file11=$dir11/$filename
-    eval "$cmd1" 1>/tmp/out 2>/tmp/err || { cat /tmp/err;exit 1; }
+    baked_str=$( eval "$cmd")
+    print_col 0 $baked_str
+    print_col 1 $baked_str
 
-
-    test -s /tmp/out || { echo file $file11 is empty; exit 1; }
-
-    touch $file11
-    cat /tmp/out | grep -v ^$ | head -n -1 | tail -n +2 > $file11
-
-    ls -l $file11
-    echo num_lesson: $num_lesson
-    cat $file11
     #       let "num_lesson += 1"
     #  done
 }
 
-run_2_dirs(){
-    local lang_to_x=$1
-    commander start $lang_base $lang_to_x $num_lesson
-    commander start $lang_to_x $lang_base $num_lesson
+bla(){
+    local direction=$1
+    local url=$2
+    local filename
+    local dirname=jquerygo
+
+    if [ $direction -eq 0];then
+        col_is=left
+    else
+        col_is=right
+    fi
+    local path_to=$dirname/${col_is}.js
+    #    cmd2="$dir_script/phantom.sh test.js $res"
+
+    local cmd1="node $path_to $url"
+    trace "cmd1: $cmd1"
+
+    filename=${lang_from}_${lang_to}_${col_is}.txt
+    file11=$dir_to11/$filename
+    eval "$cmd1" 1>/tmp/out 2>/tmp/err || { cat /tmp/err;exit 1; }
+    test -s /tmp/out || { echo file $file11 is empty; exit 1; }
+    #touch $file11
+    cat /tmp/out | grep -v ^$ | head -n -1 | tail -n +2 > $file11
+
+    test -s $file11 && ( cat $file11 ) || ( trace "file is empty: $file11" )
 }
-steps(){
-    #    set_env
-    local arr_langs=( $langs )
-    #let "lesson_max=$num_lesson + 1"
+
+switch_urls(){
+    local lang_to_x=$1
+    commander scrap_2_col $lang_base $lang_to_x $num_lesson
+    commander scrap_2_col $lang_to_x $lang_base $num_lesson
+}
+loop_langs(){
     echo ${arr_langs[@]}
     for t in "${arr_langs[@]}"
     do
-        commander run_2_dirs $t $num_lesson
+        switch_urls $t $num_lesson
     done
 }
+
+steps(){
+    set_env
+    ensure_dir
+
+    test -v num_lesson
+    loop_langs
+}
+ensure_dir(){
+    dir_to11=$dir_to/$num_lesson/
+    test -d $dir_to11 || { mkdir -p $dir_to11; }
+}
+
 steps
 
 #echo "langs: ${langs[@]}"

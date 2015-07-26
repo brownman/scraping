@@ -2,41 +2,88 @@
 1 verbose cli [ '/home/someone1/.nvm/v0.10.33/bin/node',
 1 verbose cli   '/home/someone1/.nvm/v0.10.33/bin/npm',
 1 verbose cli   'link',
-1 verbose cli   'phantomjs' ]
+1 verbose cli   'jquery.go.js' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
-4 verbose node_modules/phantomjs unbuild
-5 verbose link symlinking /home/someone1/.nvm/v0.10.33/lib/node_modules/phantomjs to /home/someone1/OFER/SCRAP/scrapping/node_modules/phantomjs
-6 info build /home/someone1/OFER/SCRAP/scrapping/node_modules/phantomjs
-7 info preinstall phantomjs@1.9.16
-8 verbose linkStuff [ false,
-8 verbose linkStuff   false,
-8 verbose linkStuff   false,
-8 verbose linkStuff   '/home/someone1/OFER/SCRAP/scrapping/node_modules' ]
-9 info linkStuff phantomjs@1.9.16
-10 verbose linkBins phantomjs@1.9.16
-11 verbose link bins [ { phantomjs: './bin/phantomjs' },
-11 verbose link bins   '/home/someone1/OFER/SCRAP/scrapping/node_modules/.bin',
-11 verbose link bins   false ]
-12 verbose linkMans phantomjs@1.9.16
-13 verbose rebuildBundles phantomjs@1.9.16
-14 info install phantomjs@1.9.16
-15 verbose unsafe-perm in lifecycle true
-16 info phantomjs@1.9.16 Failed to exec install script
-17 error phantomjs@1.9.16 install: `node install.js`
-17 error Exit status 8
-18 error Failed at the phantomjs@1.9.16 install script.
-18 error This is most likely a problem with the phantomjs package,
-18 error not with npm itself.
-18 error Tell the author that this fails on your system:
-18 error     node install.js
-18 error You can get their info via:
-18 error     npm owner ls phantomjs
-18 error There is likely additional logging output above.
-19 error System Linux 3.13.0-46-generic
-20 error command "/home/someone1/.nvm/v0.10.33/bin/node" "/home/someone1/.nvm/v0.10.33/bin/npm" "link" "phantomjs"
-21 error cwd /home/someone1/OFER/SCRAP/scrapping
-22 error node -v v0.10.33
-23 error npm -v 1.4.28
-24 error code ELIFECYCLE
-25 verbose exit [ 1, true ]
+4 verbose install where,what [ '/home/someone1/.nvm/v0.10.33/lib', [ 'jquery.go.js' ] ]
+5 warn package.json accountsapplication@1.0.0 No repository field.
+6 warn package.json accountsapplication@1.0.0 No README data
+7 warn package.json ionic-project@1.0.0 No repository field.
+8 verbose cache add [ 'jquery.go.js', null ]
+9 verbose cache add name=undefined spec="jquery.go.js" args=["jquery.go.js",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'jquery.go.js',
+10 verbose parsed url   path: 'jquery.go.js',
+10 verbose parsed url   href: 'jquery.go.js' }
+11 silly lockFile 541b4e38-jquery-go-js jquery.go.js
+12 verbose lock jquery.go.js /home/someone1/.npm/541b4e38-jquery-go-js.lock
+13 silly lockFile 541b4e38-jquery-go-js jquery.go.js
+14 silly lockFile 541b4e38-jquery-go-js jquery.go.js
+15 verbose addNamed [ 'jquery.go.js', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile 5452430b-jquery-go-js jquery.go.js@
+18 verbose lock jquery.go.js@ /home/someone1/.npm/5452430b-jquery-go-js.lock
+19 silly addNameRange { name: 'jquery.go.js', range: '*', hasData: false }
+20 verbose request where is /jquery.go.js
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id fac7e7a2f8f12423
+23 verbose url raw /jquery.go.js
+24 verbose url resolving [ 'https://registry.npmjs.org/', './jquery.go.js' ]
+25 verbose url resolved https://registry.npmjs.org/jquery.go.js
+26 verbose request where is https://registry.npmjs.org/jquery.go.js
+27 info trying registry request attempt 1 at 17:09:27
+28 http GET https://registry.npmjs.org/jquery.go.js
+29 http 404 https://registry.npmjs.org/jquery.go.js
+30 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+30 verbose headers   'content-type': 'application/json',
+30 verbose headers   'cache-control': 'max-age=0',
+30 verbose headers   'content-length': '51',
+30 verbose headers   'accept-ranges': 'bytes',
+30 verbose headers   date: 'Sun, 26 Jul 2015 14:09:28 GMT',
+30 verbose headers   via: '1.1 varnish',
+30 verbose headers   age: '0',
+30 verbose headers   connection: 'keep-alive',
+30 verbose headers   'x-served-by': 'cache-lcy1124-LCY',
+30 verbose headers   'x-cache': 'MISS',
+30 verbose headers   'x-cache-hits': '0',
+30 verbose headers   'x-timer': 'S1437919767.719905,VS0,VE683' }
+31 silly registry.get cb [ 404,
+31 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 silly registry.get     'content-type': 'application/json',
+31 silly registry.get     'cache-control': 'max-age=0',
+31 silly registry.get     'content-length': '51',
+31 silly registry.get     'accept-ranges': 'bytes',
+31 silly registry.get     date: 'Sun, 26 Jul 2015 14:09:28 GMT',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     age: '0',
+31 silly registry.get     connection: 'keep-alive',
+31 silly registry.get     'x-served-by': 'cache-lcy1124-LCY',
+31 silly registry.get     'x-cache': 'MISS',
+31 silly registry.get     'x-cache-hits': '0',
+31 silly registry.get     'x-timer': 'S1437919767.719905,VS0,VE683' } ]
+32 silly lockFile 5452430b-jquery-go-js jquery.go.js@
+33 silly lockFile 5452430b-jquery-go-js jquery.go.js@
+34 error 404 404 Not Found: jquery.go.js
+34 error 404
+34 error 404 'jquery.go.js' is not in the npm registry.
+34 error 404 You should bug the author to publish it
+34 error 404
+34 error 404 Maybe try 'npm search jquery go'
+34 error 404
+34 error 404 Note that you can also install from a
+34 error 404 tarball, folder, or http url, or git url.
+35 error System Linux 3.13.0-58-generic
+36 error command "/home/someone1/.nvm/v0.10.33/bin/node" "/home/someone1/.nvm/v0.10.33/bin/npm" "link" "jquery.go.js"
+37 error cwd /home/someone1/Downloads/do_for_others_first/SCRIPT/SERVICE/DIR/scrapping
+38 error node -v v0.10.33
+39 error npm -v 1.4.28
+40 error code E404
+41 verbose exit [ 1, true ]
