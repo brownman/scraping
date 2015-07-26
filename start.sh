@@ -1,5 +1,5 @@
 export dir_parent=$(cd `dirname $0`;pwd)
-set -e
+#set -e
 
 if [ "$1" -eq 1 ];then
     file1='simplest'
@@ -8,6 +8,7 @@ else
 fi
 
 lesson1="$2"
+let 'lesson1 += 2' #offset
 
 
 

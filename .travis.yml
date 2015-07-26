@@ -12,4 +12,6 @@ branches:
 
 script:
   - chmod u+x *.sh
-  - ./simplest.sh RU 3
+  - chmod u+x script/*.sh
+  - ./start 1 4
+  - ./start 0 4
