@@ -95,7 +95,7 @@ print_1_col(){
     test -s /tmp/out || { echo file $file11 is empty; exit 1; }
     #touch $file11
     local file_tmp=/tmp/tmp.txt
-    cat /tmp/out | grep -v ^$ | grep -v jsbin | grep -v 'phantom stdout:' > $file_tmp
+    cat /tmp/out | grep -v googleapis |  grep -v ^$ | grep -v jsbin | grep -v 'phantom stdout:' > $file_tmp
     #| head -n -1 | tail -n +2 > $file11
 
 
