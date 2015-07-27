@@ -13,7 +13,7 @@ broadcast(){
     local num=$2
     local timeout=$3
     local str=$( sed -n ${num}p $file );
-    test -n "$str" && (
+    ( test -n "$str" || test $str != 'Demo Version') && (
     command xcowsay "$str" --time $timeout || { trace "$str"; }
     sleep 1 #$timeout
     )
