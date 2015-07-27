@@ -1,8 +1,9 @@
 
 #set -e
 
-method1=$1
-lesson1="$2"
+#method1=$1
+export lesson1="$1"
+let 'method1 = 0'
 let 'lesson1 += 2' #offset
 
 export dir_parent=$(cd `dirname $0`;pwd)

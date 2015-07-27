@@ -2,7 +2,8 @@
 set -u
 
 
-lesson1=$1
+#lesson1=$1
+test -v lesson1 || { trace err lesson1 not set; exit 0; }
 # echo no such dir; exit 1; }
 
 #files=( $1 $2 $3 )
@@ -13,7 +14,7 @@ broadcast(){
     local num=$2
     local timeout=$3
     local str=$( sed -n ${num}p $file );
-    ( test -n "$str" || test $str != 'Demo Version') && (
+    ( test -n "$str" || test $str != 'Demo Version' ) && (
     command xcowsay "$str" --time $timeout 2>/dev/null || { trace "$str"; }
     sleep 1 #$timeout
     )

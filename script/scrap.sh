@@ -23,7 +23,7 @@ string_change(){
     else
         str_num="100"
     fi
-    echo 1>&2 str_num is $str_num
+    #echo 1>&2 str_num is $str_num
     echo "$str_num"
 
 }
@@ -91,7 +91,9 @@ print_1_col(){
     eval "$cmd1" 1>/tmp/out 2>/tmp/err || { cat /tmp/err;exit 1; }
     test -s /tmp/out || { echo file $file11 is empty; exit 1; }
     #touch $file11
-    cat /tmp/out | grep -v ^$ | head -n -1 | tail -n +2 > $file11
+   cat /tmp/out | grep -v ^$ | grep -v 'phantom stdout:' > $file11
+   #| head -n -1 | tail -n +2 > $file11
+
 
     test -s $file11 && ( cat $file11 ) || ( trace "file is empty: $file11" )
 }
