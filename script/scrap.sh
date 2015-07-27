@@ -2,7 +2,10 @@ num_lesson=${1:-1}
 
 echo num_lesson: $num_lesson
 #num_lesson=3
-
+cat1(){
+    local file11=$1
+    test -s $file11 && ( cat $file11 ) || ( trace "file is empty: $file11" )
+}
 set_env(){
     let 'counter1 = 1'
     arr_langs=( $langs )
@@ -99,7 +102,8 @@ print_1_col(){
 
     if [ $direction -eq 0 ];then
         cp $file_tmp  $file11
-        #  test -s $file11 && ( cat $file11 ) || ( trace "file is empty: $file11" )
+    #    test -s $file11 && ( cat $file11 ) || ( trace "file is empty: $file11" )
+    cat1 $file11
     else
         cp $file_tmp  $file11
         if [ "$lang_to" = AR ];then
@@ -112,88 +116,94 @@ print_1_col(){
         mv $file11 /tmp
     fi
 
-    }
+}
 
-    split_it_AR(){
-        local path_file=$1
-        let 'counter2 = 0'
-        local    file1=${path_file}_r #/tmp/221
-        local    file2=${path_file}_r_phon #/tmp/220
+split_it_AR(){
+    local path_file=$1
+    let 'counter2 = 0'
+    local    file1=${path_file}_r #/tmp/221
+    local    file2=${path_file}_r_phon #/tmp/220
 
-        echo -n '' > $file1
-        echo -n '' > $file2
+    echo -n '' > $file1
+    echo -n '' > $file2
 
-        while read line;do
-            let "mod1 = $counter2 % 2"
-            #echo $mod1
-            if [ "$mod1" -eq 0 ];then
-                echo $line >> $file1
-            else 
-                echo $line >> $file2
-            fi
-            let 'counter2 += 1'  
-        done < $path_file
-        echo check out $file1
-        echo check out  $file2
-    }
+    while read line;do
+        let "mod1 = $counter2 % 2"
+        #echo $mod1
+        if [ "$mod1" -eq 0 ];then
+            echo $line >> $file1
+        else 
+            echo $line >> $file2
+        fi
+        let 'counter2 += 1'  
+    done < $path_file
+    #        echo check out $file1
+    #       echo check out  $file2
+    cat1 $file1
+    cat1 $file2
+}
 
-    split_it_RU(){
-        local path_file=$1
-        let 'counter2 = 0'
-        local    file1=${path_file}_r1 #/tmp/221
-        local    file2=${path_file}_r2 #_phon #/tmp/220
-        local    file3=${path_file}_r3 #_empty #/tmp/220
+split_it_RU(){
+    local path_file=$1
+    let 'counter2 = 0'
+    local    file1=${path_file}_r1 #/tmp/221
+    local    file2=${path_file}_r2 #_phon #/tmp/220
+    local    file3=${path_file}_r3 #_empty #/tmp/220
 
-        echo -n '' > $file1
-        echo -n '' > $file2
-        echo -n '' > $file3
+    echo -n '' > $file1
+    echo -n '' > $file2
+    echo -n '' > $file3
 
-        while read line;do
-            let "mod1 = $counter2 % 3"
-            #echo $mod1
-            if [ "$mod1" -eq 0 ];then
-                echo $line >> $file1
-            elif [ "$mod1" -eq 1 ];then
-                echo $line >> $file2
-            else
-                echo $line >> $file3
-            fi
-            let 'counter2 += 1'  
-        done < $path_file
-        echo check out $file1
-        echo check out  $file2
-        echo check out  $file3
-    }
+    while read line;do
+        let "mod1 = $counter2 % 3"
+        #echo $mod1
+        if [ "$mod1" -eq 0 ];then
+            echo $line >> $file1
+        elif [ "$mod1" -eq 1 ];then
+            echo $line >> $file2
+        else
+            echo $line >> $file3
+        fi
+        let 'counter2 += 1'  
+    done < $path_file
+    #        echo check out $file1
+    #       echo check out  $file2
+    #      echo check out  $file3
+    cat1 $file1
+    cat1 $file2
+    cat1 $file3
+
+}
 
 
 
-    switch_urls(){
-        local lang_to_x=$1
-        commander scrap_2_col $lang_base $lang_to_x $num_lesson
-        commander scrap_2_col $lang_to_x $lang_base $num_lesson
-    }
+switch_urls(){
+    local lang_to_x=$1
+    commander scrap_2_col $lang_base $lang_to_x $num_lesson
+    commander scrap_2_col $lang_to_x $lang_base $num_lesson
+}
 
-    loop_langs(){
-        echo ${arr_langs[@]}
-        for t in "${arr_langs[@]}"
-        do
-            switch_urls $t $num_lesson
-        done
-    }
+loop_langs(){
+    echo ${arr_langs[@]}
+    for t in "${arr_langs[@]}"
+    do
+        switch_urls $t $num_lesson
+    done
+}
 
-    steps(){
-        set_env
-        ensure_dir
+steps(){
+    set_env
+    ensure_dir
 
-        test -v num_lesson
-        loop_langs
-    }
-    ensure_dir(){
-        test -d $dir_lessons || { commander "mkdir -p $dir_lessons" ; }
-        #    dir_lessons=$dir_bank/$num_lesson/
-        #    test -d $dir_lessons || { mkdir -p $dir_lessons; }
-    }
+    test -v num_lesson
+    loop_langs
+}
+ensure_dir(){
+    test -d $dir_lessons || { commander "mkdir -p $dir_lessons" ; }
+    #    dir_lessons=$dir_bank/$num_lesson/
+    #    test -d $dir_lessons || { mkdir -p $dir_lessons; }
+}
 
-    steps
+steps
 
-    #echo "langs: ${langs[@]}"
+#echo "langs: ${langs[@]}"
