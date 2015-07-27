@@ -1,11 +1,7 @@
 
 #set -e
-
+lesson_input=${1:-}
 #method1=$1
-export lesson1="$1"
-let 'method1 = 0'
-let 'lesson1 += 2' #offset
-
 export dir_parent=$(cd `dirname $0`;pwd)
 
 pushd  $dir_parent >/dev/null
@@ -25,6 +21,13 @@ ensure_dir(){
 
 set_env(){
     source $dir_parent/cfg/config.cfg
+    random 100
+    local res=$?
+
+    export lesson1=${lesson_input:-$res}
+    let 'method1 = 0'
+    let 'lesson1 += 2' #offset
+    export dir_lessons=$dir_bank/$lesson1
 }
 
 intro(){
@@ -44,9 +47,13 @@ run(){
 }
 
 steps(){
-    set_env
-    intro
 
+
+
+    set_env
+
+
+    intro
     ensure_dir $lesson1 
     run
 }

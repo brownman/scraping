@@ -91,7 +91,7 @@ print_1_col(){
     eval "$cmd1" 1>/tmp/out 2>/tmp/err || { cat /tmp/err;exit 1; }
     test -s /tmp/out || { echo file $file11 is empty; exit 1; }
     #touch $file11
-   cat /tmp/out | grep -v ^$ | grep -v 'phantom stdout:' > $file11
+   cat /tmp/out | grep -v ^$ | grep -v jsbin | grep -v 'phantom stdout:' > $file11
    #| head -n -1 | tail -n +2 > $file11
 
 

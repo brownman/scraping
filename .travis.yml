@@ -13,5 +13,4 @@ branches:
 script:
   - chmod u+x *.sh
   - chmod u+x script/*.sh
-  - ./start.sh 1 4
-  - ./start.sh 0 4
+  - ./start.sh
