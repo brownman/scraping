@@ -1,8 +1,15 @@
+var arguments = process.argv.slice(2);
+console.log(arguments[0]);
+
 var $ = require('jquerygo');
 
 // Visit the user path and log in.
 //
-var site = 'http://www.goethe-verlag.com/book2/EM/EMIT/EMIT008.HTM';
+var site = arguments[0];
+
+
+// Visit the user path and log in.
+//
 $.visit(site, function() {
 
     // Get the title.

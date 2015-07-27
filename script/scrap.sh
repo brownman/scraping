@@ -4,9 +4,8 @@ echo num_lesson: $num_lesson
 #num_lesson=3
 
 set_env(){
-test -d $dir_to
-dir_to11=$dir_to
-arr_langs=( $langs )
+    let 'counter1 = 0'
+    arr_langs=( $langs )
 }
 
 
@@ -59,23 +58,27 @@ scrap_2_col(){
     cmd="bake_url_str $lang_from $lang_to $num_lesson"
     echo cmd: $cmd
     baked_str=$( eval "$cmd")
-    print_col 0 $baked_str
-    print_col 1 $baked_str
+    print_1_col 0 $baked_str
+    print_1_col 1 $baked_str
 
     #       let "num_lesson += 1"
     #  done
 }
 
-bla(){
+print_1_col(){
+    let 'counter1 += 1'
     local direction=$1
     local url=$2
     local filename
     local dirname=jquerygo
-
-    if [ $direction -eq 0];then
+    local col_is
+    local file11
+    if [ $direction -eq 0 ];then
         col_is=left
+        filename=${lang_from}_${counter1}.txt
     else
         col_is=right
+        filename=${lang_to}_${counter1}.txt
     fi
     local path_to=$dirname/${col_is}.js
     #    cmd2="$dir_script/phantom.sh test.js $res"
@@ -83,8 +86,8 @@ bla(){
     local cmd1="node $path_to $url"
     trace "cmd1: $cmd1"
 
-    filename=${lang_from}_${lang_to}_${col_is}.txt
-    file11=$dir_to11/$filename
+    # filename=${lang_from}_${lang_to}_${col_is}.txt
+    file11=$dir_target1/$filename
     eval "$cmd1" 1>/tmp/out 2>/tmp/err || { cat /tmp/err;exit 1; }
     test -s /tmp/out || { echo file $file11 is empty; exit 1; }
     #touch $file11
@@ -98,6 +101,7 @@ switch_urls(){
     commander scrap_2_col $lang_base $lang_to_x $num_lesson
     commander scrap_2_col $lang_to_x $lang_base $num_lesson
 }
+
 loop_langs(){
     echo ${arr_langs[@]}
     for t in "${arr_langs[@]}"
@@ -114,8 +118,8 @@ steps(){
     loop_langs
 }
 ensure_dir(){
-    dir_to11=$dir_to/$num_lesson/
-    test -d $dir_to11 || { mkdir -p $dir_to11; }
+    dir_target1=$dir_bank/$num_lesson/
+    test -d $dir_target1 || { mkdir -p $dir_target1; }
 }
 
 steps

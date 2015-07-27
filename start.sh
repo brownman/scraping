@@ -2,9 +2,9 @@ export dir_parent=$(cd `dirname $0`;pwd)
 #set -e
 
 if [ "$1" -eq 1 ];then
-    file1='simplest'
+    file1='scrap'
 else
-    file1='random_line'
+    file1='print'
 fi
 
 lesson1="$2"
