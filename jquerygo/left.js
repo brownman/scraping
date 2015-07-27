@@ -2,7 +2,7 @@
 //config1.argv().env();
 //var url1 = config1.get('s');
 var arguments = process.argv.slice(2);
-console.log(arguments[0]);
+//console.log(arguments[0]);
 
 
 

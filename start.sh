@@ -40,10 +40,13 @@ run(){
         file1='scrap'
         local cmd="$dir_script/${file1}.sh $lesson1"
         commander "$cmd"
+    else
+
+        file1='print'
+        local cmd="$dir_script/${file1}.sh $lesson1"
+        commander "$cmd"
+
     fi
-    file1='print'
-    local cmd="$dir_script/${file1}.sh $lesson1"
-    commander "$cmd"
 }
 
 steps(){

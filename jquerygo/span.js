@@ -1,5 +1,5 @@
 var arguments = process.argv.slice(2);
-//console.log(arguments[0]);
+console.log(arguments[0]);
 
 var $ = require('jquerygo');
 
@@ -11,7 +11,7 @@ var site = arguments[0];
 // Visit the user path and log in.
 //
 function inner1(){
-    var f='.Stil45';// div:nth-child(2)';
+    var f='.Stil45 span';// div:nth-child(2)';
         $(f).text(function(text) {
             console.log(text);
             $.close();
