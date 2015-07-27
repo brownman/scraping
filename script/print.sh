@@ -3,18 +3,20 @@ set -u
 
 
 lesson1=$1
-   # echo no such dir; exit 1; }
-use random
+# echo no such dir; exit 1; }
+
 #files=( $1 $2 $3 )
 #timeout=(3 10 10)
 
-func1(){
+broadcast(){
     local file=$1
     local num=$2
     local timeout=$3
     local str=$( sed -n ${num}p $file );
-    xcowsay "$str" --time $timeout 
-    sleep 1 #$timeout 
+    test -n "$str" && (
+    command xcowsay "$str" --time $timeout || { trace "$str"; }
+    sleep 1 #$timeout
+    )
 }
 
 pick_1(){
@@ -36,7 +38,7 @@ create_array(){
 
 #decide line number
 steps(){
-local file
+    local file
     timeout=10
     #pick_1 "$dir_lessons/${files[0]}"
     random 10
@@ -46,16 +48,13 @@ local file
     echo $num1
 
     #print line x from both files #3: xcowsay-timeout
-    #func1 $file1 $num1 3
-    #func1 $file2 $num1 10
-    #func1 $file3 $num1 10
 
 
     i=0
     while [ $i -lt "${#files[@]}" ];do
         file=$dir_lessons/${files[i]}
         test -f $file || { echo 1>&2 no such file: $file; exit 0; }
-        commander  func1 $file $num1 $timeout
+        commander  broadcast $file $num1 $timeout
         let 'i+=1'
     done
 

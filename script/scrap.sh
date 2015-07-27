@@ -87,7 +87,7 @@ print_1_col(){
     trace "cmd1: $cmd1"
 
     # filename=${lang_from}_${lang_to}_${col_is}.txt
-    file11=$dir_target1/$filename
+    file11=$dir_lessons/$filename
     eval "$cmd1" 1>/tmp/out 2>/tmp/err || { cat /tmp/err;exit 1; }
     test -s /tmp/out || { echo file $file11 is empty; exit 1; }
     #touch $file11
@@ -118,8 +118,9 @@ steps(){
     loop_langs
 }
 ensure_dir(){
-    dir_target1=$dir_bank/$num_lesson/
-    test -d $dir_target1 || { mkdir -p $dir_target1; }
+test -d $dir_lessons || { commander "mkdir -p $dir_lessons" ; }
+#    dir_lessons=$dir_bank/$num_lesson/
+#    test -d $dir_lessons || { mkdir -p $dir_lessons; }
 }
 
 steps
