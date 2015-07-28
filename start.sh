@@ -28,6 +28,8 @@ set_env(){
     let 'method1 = 0'
     let 'lesson1 += 2' #offset
     export dir_lessons=$dir_bank/$lesson1
+
+notify-send "lesson: $lesson1" &
 }
 
 intro(){
@@ -36,17 +38,18 @@ intro(){
 
 run(){
     local file1
+    local cmd
+
     if [ "$method1" -eq 1 ];then
         file1='scrap'
-        local cmd="$dir_script/${file1}.sh $lesson1"
+    cmd="$dir_script/${file1}.sh $lesson1"
         commander "$cmd"
-    else
-
-        file1='print'
-        local cmd="$dir_script/${file1}.sh $lesson1"
-        commander "$cmd"
-
     fi
+        file1='print'
+    cmd="$dir_script/${file1}.sh $lesson1"
+        commander "$cmd"
+
+
 }
 
 steps(){
