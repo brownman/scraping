@@ -12,42 +12,6 @@ set_env(){
 }
 
 
-string_change(){
-    let "num=$1"
-    local str_num=0
-
-    #  use print
-    #    print func
-
-    if [ $num -lt 10 ];then
-        str_num="00$num"
-    elif [ $num -lt 100 ] ;then
-        str_num="0$num"
-    else
-        str_num="100"
-    fi
-    #echo 1>&2 str_num is $str_num
-    echo "$str_num"
-
-}
-
-
-
-bake_url_str(){
-    local lang_from=$1
-    local lang_to=$2
-    local num_lesson=$3
-
-    local str_num=$( string_change $num_lesson )
-    local filename_html="${lang_from}${lang_to}${str_num}.HTM"
-
-    #expose_var filename_html
-
-    local url="http://www.goethe-verlag.com/book2/${lang_from}/${lang_from}${lang_to}/${filename_html}"
-    echo $url
-}
-
-
 
 
 
