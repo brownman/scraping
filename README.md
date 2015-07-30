@@ -20,7 +20,7 @@ scraping
 =========
 trying different tools for web scraping
 
-selector tool
+selector tool 
 ----
 - http://selectorgadget.com/
   
