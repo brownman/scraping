@@ -3,8 +3,9 @@
  
   
  
-    
-   
+ TODO
+ ----
+ - rm double files for lang:en
    
    
     
