@@ -14,7 +14,10 @@ broadcast(){
     local num=$2
     local timeout=$3
     local str=$( sed -n ${num}p $file );
-    ( test -z "$str" || ( echo "$str" | grep Version ) ) || (
+    ( test -z "$str" || ( echo "$str" | egrep -h Version\|Binary ) ) || (
+
+    cat $file_dup | grep "$str" || (
+    echo "$str" >> $file_dup
    # command xcowsay "$str" --time $timeout 2>/dev/null || { trace "$str"; }
 
     # command notify-send "$str" 2>/dev/null || { trace "$str"; }
@@ -22,7 +25,8 @@ broadcast(){
 command notify-send -t 15000 "$str" "_"   2>/dev/null || { trace "$str"; }
 
 
-    sleep 1 #$timeout
+    sleep 2 #$timeout
+    )
     )
 }
 
@@ -66,4 +70,9 @@ steps(){
     done
 
 }
+set_env(){
+file_dup=/tmp/dup
+echo -n '' > $file_dup
+}
+set_env
 steps
