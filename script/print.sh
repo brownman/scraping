@@ -14,7 +14,7 @@ broadcast(){
     local num=$2
     local timeout=$3
     local str=$( sed -n ${num}p $file );
-    ( test -z "$str" || ( echo "$str" | egrep -h Version\|Binary ) ) || (
+    ( test -z "$str" || ( echo "$str" | egrep -h Version\|Binary\|Error\|error ) ) || (
 
     cat $file_dup | grep "$str" || (
     echo "$str" >> $file_dup
