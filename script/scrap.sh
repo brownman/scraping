@@ -24,14 +24,38 @@ scrap_2_col(){
     local cmd
     cmd="bake_url_str $lang_from $lang_to $num_lesson"
     trace $cmd
-    baked_str=$( eval "$cmd")
+    local baked_str=$( eval "$cmd")
+
+extract_mp3 "$baked_str" "$lang_to" "$num_lesson"
     print_1_col 0 $baked_str
     print_1_col 1 $baked_str
 
     #       let "num_lesson += 1"
     #  done
 }
+extract_mp3(){
+set -u
+      local url="$1"
 
+   local lang_to="$2"
+
+      local lesson="$3"
+local dir_bank_mp3="$dir_mp3/$lesson/$lang_to"
+   commander mkdir -p $dir_bank_mp3
+
+   #url="http://www.goethe-verlag.com/book2/AR/AREM/AREM017.HTM"
+
+   local dir_tmp1=$(mktemp -d)
+
+   #ls $dir_tmp1
+   commander "wget -P $dir_bank_mp3 -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off '$url'" &>/dev/null  #&&  {   mv $dir_tmp1/* $dir_bank_mp3/; }
+
+
+   
+   #ls -1 $dir_tmp1 --sort=name | head -1
+
+
+}
 print_1_col(){
     let 'counter1 += 1'
     local direction=$1

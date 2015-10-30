@@ -28,6 +28,7 @@ set_env(){
     let 'method1 = 0'
     let 'lesson1 += 2' #offset
     export dir_lessons=$dir_bank/$lesson1
+    export dir_mp3_now=$dir_mp3/$lesson1
 
 notify-send "lesson: $lesson1" &
 }
@@ -48,7 +49,6 @@ run(){
         file1='print'
     cmd="$dir_script/${file1}.sh $lesson1"
         commander "$cmd"
-
 
 }
 

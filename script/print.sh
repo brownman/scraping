@@ -2,6 +2,8 @@
 set -u
 
 
+
+
 #lesson1=$1
 test -v lesson1 || { trace err lesson1 not set; exit 0; }
 # echo no such dir; exit 1; }
@@ -9,12 +11,28 @@ test -v lesson1 || { trace err lesson1 not set; exit 0; }
 #files=( $1 $2 $3 )
 #timeout=(3 10 10)
 
+broadcast_mp3(){
+    #ls $dir_bank_mp3 -1 --sort=name >$file_mp3
+local file=$1
+    local num=$2
+
+    local str1=$( sed -n ${num}p $file );
+    notify-send "$str1"
+
+
+}
+
 broadcast(){
+    echo  broadcast
     local file=$1
     local num=$2
     local timeout=$3
     local str=$( sed -n ${num}p $file );
+
+
     ( test -z "$str" || ( echo "$str" | egrep -h Version\|Binary\|Error\|error ) ) || (
+
+
 
     cat $file_dup | grep "$str" || (
     echo "$str" >> $file_dup
@@ -43,7 +61,7 @@ create_array(){
 
     files_str="$( ls -1 $dir_lessons )"
     files=( $files_str )
-
+#echo $files; exit 1
 
 }
 
@@ -62,10 +80,27 @@ steps(){
 
 
     i=0
+
+local file=$(mktemp)
+
+
+    local dirs=$( ls $dir_mp3_now/* )
+    for dir in $dirs;do
+        #ls $dir --sort=name > $file_list1
+        find $dir -type f 1> $file 2>/dev/null
+local num_lines=$(        cat $file | wc -l )
+if [ $num_lines -ne 0 ];then
+        commander  "broadcast_mp3 $file $num1" ;
+    fi
+    done
+
+
     while [ $i -lt "${#files[@]}" ];do
         file=$dir_lessons/${files[i]}
         test -f $file || { echo 1>&2 no such file: $file; exit 0; }
-        commander  broadcast $file $num1 $timeout
+        
+
+        commander  "broadcast $file $num1 $timeout"
         let 'i+=1'
     done
 
